@@ -1,0 +1,170 @@
+/* ---------- 1. Colours: change these and every page changes ---------- */
+:root {
+  --indigo: #24306e;
+    --indigo-deep: #161d47;
+      --zobo: #b3123f;
+        --chalk: #f7f5fb;
+          --ink: #1c1b2b;
+            --soft: #5e5c75;
+              --line: #dcd8ea;
+                --gold: #f2b705;
+                }
+                @media (prefers-color-scheme: dark) {
+                  :root {
+                      --chalk: #14132a;
+                          --ink: #f1eefa;
+                              --soft: #a9a6c4;
+                                  --line: #2f2d52;
+                                      --indigo: #2b3880;
+                                        }
+                                        }
+
+                                        /* ---------- 2. Base ---------- */
+                                        * { box-sizing: border-box; margin: 0; padding: 0; }
+                                        body {
+                                          font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+                                            background: var(--chalk);
+                                              color: var(--ink);
+                                                line-height: 1.6;
+                                                }
+                                                .wrap { max-width: 640px; margin: 0 auto; padding: 0 20px; }
+                                                h1, h2 { line-height: 1.15; letter-spacing: -0.02em; }
+                                                h2 { font-size: 1.6rem; margin-bottom: 8px; }
+                                                section { padding: 48px 0; }
+                                                .muted { color: var(--soft); }
+                                                :focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+
+                                                /* ---------- 3. Top bar (same on every page) ---------- */
+                                                .topbar { background: var(--indigo-deep); color: #fff; }
+                                                .topbar .wrap {
+                                                  display: flex;
+                                                    justify-content: space-between;
+                                                      align-items: center;
+                                                        padding-top: 14px;
+                                                          padding-bottom: 14px;
+                                                          }
+                                                          .topbar .brand { font-weight: 700; color: #fff; text-decoration: none; font-size: 1.1rem; }
+                                                          .topbar nav a {
+                                                            color: #c9cdee;
+                                                              text-decoration: none;
+                                                                margin-left: 16px;
+                                                                  padding: 6px 0;
+                                                                    border-bottom: 2px solid transparent;
+                                                                    }
+                                                                    .topbar nav a:hover { color: #fff; }
+                                                                    /* The page you are on gets a gold underline */
+                                                                    .topbar nav a[aria-current="page"] { color: #fff; border-bottom-color: var(--gold); }
+
+                                                                    /* ---------- 4. Home hero (adire pattern made with CSS, no image to download) ---------- */
+                                                                    .hero {
+                                                                      background-color: var(--indigo);
+                                                                        background-image:
+                                                                            radial-gradient(circle at 50% 50%, transparent 0 6px, rgba(255,255,255,.14) 6px 8px, transparent 8px),
+                                                                                radial-gradient(circle at 0 0, rgba(255,255,255,.14) 0 4px, transparent 4px),
+                                                                                    radial-gradient(circle at 100% 100%, rgba(255,255,255,.14) 0 4px, transparent 4px);
+                                                                                      background-size: 36px 36px;
+                                                                                        color: #fff;
+                                                                                          padding: 64px 0;
+                                                                                          }
+                                                                                          .hero h1 { font-size: clamp(2.4rem, 9vw, 3.6rem); max-width: 11ch; }
+                                                                                          .hero p { margin: 16px 0 28px; max-width: 34ch; color: #dfe2f7; font-size: 1.1rem; }
+
+                                                                                          /* Smaller banner used on Prices and Book pages */
+                                                                                          .page-title { background: var(--indigo); color: #fff; padding: 36px 0; }
+                                                                                          .page-title h1 { font-size: 2rem; }
+                                                                                          .page-title p { color: #dfe2f7; margin-top: 6px; }
+
+                                                                                          /* ---------- 5. Buttons ---------- */
+                                                                                          .btn {
+                                                                                            display: inline-block;
+                                                                                              background: var(--zobo);
+                                                                                                color: #fff;
+                                                                                                  border: 0;
+                                                                                                    border-radius: 8px;
+                                                                                                      padding: 14px 24px;
+                                                                                                        font-size: 1rem;
+                                                                                                          font-weight: 600;
+                                                                                                            text-decoration: none;
+                                                                                                              cursor: pointer;
+                                                                                                              }
+                                                                                                              .btn:hover { background: #930f34; }
+                                                                                                              .btn.ghost { background: transparent; border: 2px solid #fff; margin-left: 8px; }
+                                                                                                              .btn.ghost:hover { background: rgba(255,255,255,.12); }
+                                                                                                              .btn.full { width: 100%; text-align: center; }
+
+                                                                                                              /* ---------- 6. Steps on the home page ---------- */
+                                                                                                              .steps { list-style: none; margin-top: 20px; counter-reset: step; }
+                                                                                                              .steps li {
+                                                                                                                counter-increment: step;
+                                                                                                                  display: flex;
+                                                                                                                    gap: 16px;
+                                                                                                                      padding: 16px 0;
+                                                                                                                        border-bottom: 1px solid var(--line);
+                                                                                                                        }
+                                                                                                                        .steps li::before {
+                                                                                                                          content: counter(step);
+                                                                                                                            flex: none;
+                                                                                                                              width: 32px;
+                                                                                                                                height: 32px;
+                                                                                                                                  border-radius: 50%;
+                                                                                                                                    background: var(--indigo);
+                                                                                                                                      color: #fff;
+                                                                                                                                        font-weight: 700;
+                                                                                                                                          display: grid;
+                                                                                                                                            place-items: center;
+                                                                                                                                            }
+                                                                                                                                            .steps strong { display: block; }
+
+                                                                                                                                            /* ---------- 7. Price list ---------- */
+                                                                                                                                            .prices { list-style: none; margin-top: 20px; }
+                                                                                                                                            .prices li {
+                                                                                                                                              display: flex;
+                                                                                                                                                justify-content: space-between;
+                                                                                                                                                  gap: 16px;
+                                                                                                                                                    padding: 16px 0;
+                                                                                                                                                      border-bottom: 1px solid var(--line);
+                                                                                                                                                      }
+                                                                                                                                                      .prices strong { display: block; }
+                                                                                                                                                      .prices .note { color: var(--soft); font-size: .92rem; }
+                                                                                                                                                      .prices .cost { font-weight: 700; white-space: nowrap; }
+                                                                                                                                                      .cta-row { margin-top: 32px; }
+
+                                                                                                                                                      /* ---------- 8. Booking form ---------- */
+                                                                                                                                                      label { display: block; font-weight: 600; margin: 16px 0 6px; }
+                                                                                                                                                      input, select {
+                                                                                                                                                        width: 100%;
+                                                                                                                                                          padding: 14px;
+                                                                                                                                                            border-radius: 8px;
+                                                                                                                                                              border: 2px solid var(--line);
+                                                                                                                                                                font-size: 1rem;
+                                                                                                                                                                  background: #fff;
+                                                                                                                                                                    color: #1c1b2b;
+                                                                                                                                                                    }
+                                                                                                                                                                    .row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+                                                                                                                                                                    .summary {
+                                                                                                                                                                      margin: 24px 0 8px;
+                                                                                                                                                                        padding: 16px;
+                                                                                                                                                                          border-radius: 8px;
+                                                                                                                                                                            background: var(--indigo-deep);
+                                                                                                                                                                              color: #fff;
+                                                                                                                                                                              }
+                                                                                                                                                                              .summary b { color: var(--gold); font-size: 1.3rem; }
+                                                                                                                                                                              .error { color: var(--zobo); font-weight: 600; min-height: 1.5em; margin: 8px 0; }
+                                                                                                                                                                              @media (prefers-color-scheme: dark) { .error { color: #ff9db6; } }
+
+                                                                                                                                                                              .success {
+                                                                                                                                                                                display: none;
+                                                                                                                                                                                  padding: 24px;
+                                                                                                                                                                                    border-radius: 8px;
+                                                                                                                                                                                      border: 2px solid var(--gold);
+                                                                                                                                                                                      }
+                                                                                                                                                                                      .success h2 { margin-bottom: 12px; }
+                                                                                                                                                                                      .success .btn { margin-top: 16px; }
+
+                                                                                                                                                                                      /* ---------- 9. Footer ---------- */
+                                                                                                                                                                                      footer { padding: 36px 0 48px; color: var(--soft); border-top: 1px solid var(--line); }
+                                                                                                                                                                                      footer a { color: var(--ink); }
+
+                                                                                                                                                                                      @media (prefers-reduced-motion: no-preference) {
+                                                                                                                                                                                        .btn { transition: background .15s; }
+                                                                                                                                                                                        } 
